@@ -1,0 +1,116 @@
+package com.windqwsxp.expandedmod.objects.blocks;
+
+import java.util.stream.Stream;
+
+import com.windqwsxp.expandedmod.init.ItemInit;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.IBooleanFunction;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
+
+public class CornCrop extends CropsBlock {
+
+	private static final VoxelShape SHAPE = Stream.of(Block.makeCuboidShape(7, -4, 7, 9, 23.400000000000006, 9),
+			Block.makeCuboidShape(7, 3.6999999999999975, 6, 9, 4.6999999999999975, 7),
+			Block.makeCuboidShape(7, 18.900000000000013, 6, 9, 20.30000000000002, 7),
+			Block.makeCuboidShape(7, 11.300000000000002, 6, 9, 13.299999999999999, 7),
+			Block.makeCuboidShape(7, 3.6999999999999993, 9, 9, 4.699999999999999, 10),
+			Block.makeCuboidShape(7, 18.90000000000001, 9, 9, 20.300000000000015, 10),
+			Block.makeCuboidShape(7, 11.3, 9, 9, 13.299999999999997, 10),
+			Block.makeCuboidShape(10, 2.900000000000005, 7, 11, 3.800000000000005, 9),
+			Block.makeCuboidShape(5, 18.999999999999993, 7, 6, 19.499999999999993, 9),
+			Block.makeCuboidShape(5, 11.399999999999997, 7, 6, 11.899999999999999, 9),
+			Block.makeCuboidShape(5, 2.900000000000005, 7, 6, 3.800000000000005, 9),
+			Block.makeCuboidShape(10, 18.999999999999993, 7, 11, 19.499999999999993, 9),
+			Block.makeCuboidShape(10, 11.399999999999997, 7, 11, 11.899999999999999, 9),
+			Block.makeCuboidShape(7, 2.900000000000005, 5, 9, 3.800000000000005, 6),
+			Block.makeCuboidShape(7, 18.999999999999993, 5, 9, 19.499999999999993, 6),
+			Block.makeCuboidShape(7, 11.399999999999997, 5, 9, 11.899999999999999, 6),
+			Block.makeCuboidShape(7, 2.900000000000005, 10, 9, 3.800000000000005, 11),
+			Block.makeCuboidShape(7, 18.999999999999993, 10, 9, 19.499999999999993, 11),
+			Block.makeCuboidShape(7, 11.399999999999997, 10, 9, 11.899999999999999, 11),
+			Block.makeCuboidShape(6, 3.6999999999999975, 7, 7, 4.6999999999999975, 9),
+			Block.makeCuboidShape(9, 18.900000000000013, 7, 10, 20.30000000000002, 9),
+			Block.makeCuboidShape(9, 11.300000000000002, 7, 10, 13.299999999999999, 9),
+			Block.makeCuboidShape(9, 3.6999999999999975, 7, 10, 4.6999999999999975, 9),
+			Block.makeCuboidShape(6, 18.900000000000013, 7, 7, 20.30000000000002, 9),
+			Block.makeCuboidShape(6, 11.300000000000002, 7, 7, 13.299999999999999, 9),
+			Block.makeCuboidShape(5, -2, 7, 6, 1, 9), Block.makeCuboidShape(10, -2, 7, 11, 1, 9),
+			Block.makeCuboidShape(9, 1, 7, 11, 1.4999999999999996, 9),
+			Block.makeCuboidShape(5, 1, 7, 7, 1.4999999999999996, 9),
+			Block.makeCuboidShape(7, 1, 9, 9, 1.4999999999999996, 11),
+			Block.makeCuboidShape(7, 1, 5, 9, 1.4999999999999996, 7), Block.makeCuboidShape(7, -2, 10, 9, 1, 11),
+			Block.makeCuboidShape(7, -2, 5, 9, 1, 6),
+			Block.makeCuboidShape(7.500000000000002, 6.400000000000002, 5.9999999999999964, 8.500000000000002,
+					7.800000000000004, 6.499999999999998),
+			Block.makeCuboidShape(5.9999999999999964, 23.599999999999994, 7.0000000000000036, 6.499999999999998,
+					24.199999999999992, 9),
+			Block.makeCuboidShape(7.500000000000002, 15.099999999999984, 5.9999999999999964, 8.500000000000002,
+					16.499999999999993, 6.499999999999998),
+			Block.makeCuboidShape(7.500000000000002, 6.400000000000002, 9.499999999999998, 8.500000000000002,
+					7.800000000000004, 10),
+			Block.makeCuboidShape(9.499999999999998, 23.599999999999994, 7.0000000000000036, 10, 24.199999999999992, 9),
+			Block.makeCuboidShape(7.500000000000002, 15.099999999999984, 9.499999999999998, 8.500000000000002,
+					16.499999999999993, 10),
+			Block.makeCuboidShape(6, 6.400000000000002, 7.500000000000002, 6.500000000000002, 7.800000000000004,
+					8.500000000000002),
+			Block.makeCuboidShape(7.000000000000007, 23.599999999999994, 6, 9.000000000000004, 24.199999999999992,
+					6.500000000000002),
+			Block.makeCuboidShape(6, 15.099999999999984, 7.500000000000002, 6.500000000000002, 16.499999999999993,
+					8.500000000000002),
+			Block.makeCuboidShape(9.499999999999998, 6.400000000000002, 7.499999999999998, 10, 7.800000000000004,
+					8.499999999999998),
+			Block.makeCuboidShape(7.0000000000000036, 23.599999999999994, 9.499999999999998, 9, 24.199999999999992, 10),
+			Block.makeCuboidShape(9.499999999999998, 15.099999999999984, 7.499999999999998, 10, 16.499999999999993,
+					8.499999999999998),
+			Block.makeCuboidShape(7.500000000000002, 7, 6.499999999999998, 8.500000000000002, 9, 7),
+			Block.makeCuboidShape(6.499999999999998, 22, 7.0000000000000036, 7, 24, 9),
+			Block.makeCuboidShape(7.500000000000002, 15.699999999999982, 6.499999999999998, 8.500000000000002,
+					17.69999999999998, 7),
+			Block.makeCuboidShape(7.500000000000002, 7, 9, 8.500000000000002, 9, 9.500000000000002),
+			Block.makeCuboidShape(9, 22, 7.0000000000000036, 9.500000000000002, 24, 9),
+			Block.makeCuboidShape(7.500000000000002, 15.699999999999982, 9, 8.500000000000002, 17.69999999999998,
+					9.500000000000002),
+			Block.makeCuboidShape(6.499999999999998, 7, 7.500000000000002, 7, 9, 8.500000000000002),
+			Block.makeCuboidShape(7, 22, 6.499999999999998, 8.999999999999996, 24, 7),
+			Block.makeCuboidShape(6.499999999999998, 15.699999999999982, 7.500000000000002, 7, 17.69999999999998,
+					8.500000000000002),
+			Block.makeCuboidShape(9, 7, 7.499999999999998, 9.500000000000002, 9, 8.499999999999998),
+			Block.makeCuboidShape(6.9999999999999964, 22, 9, 8.999999999999993, 24, 9.500000000000002),
+			Block.makeCuboidShape(9, 15.699999999999982, 7.499999999999998, 9.500000000000002, 17.69999999999998,
+					8.499999999999998),
+			Block.makeCuboidShape(7, 23.499999999999993, 7, 9, 29.500000000000036, 9),
+			Block.makeCuboidShape(7, 22.299999999999947, 9.999999999999996, 9, 23.799999999999955, 10.299999999999999),
+			Block.makeCuboidShape(7, 22.299999999999947, 5.6999999999999975, 9, 23.799999999999955, 6),
+			Block.makeCuboidShape(9.999999999999996, 22.299999999999947, 7, 10.299999999999999, 23.799999999999955, 9),
+			Block.makeCuboidShape(5.700000000000001, 22.299999999999947, 7, 6.000000000000007, 23.799999999999955, 9))
+			.reduce((v1, v2) -> {
+				return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
+			}).get();
+
+	public CornCrop(Properties builder) {
+		super(builder);
+
+	}
+	
+	@Override
+	protected IItemProvider getSeedsItem() {
+		return ItemInit.corn_food.get();
+	}
+	
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return SHAPE;
+
+	}
+	
+
+}
+
+

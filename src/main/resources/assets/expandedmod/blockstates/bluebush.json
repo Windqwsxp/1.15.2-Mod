@@ -1,0 +1,9 @@
+{
+    "variants":
+    {
+        "age=0": { "model": "expandedmod:block/bluebush0" },
+        "age=1": { "model": "expandedmod:block/bluebush1" },
+        "age=2": { "model": "expandedmod:block/bluebush2" },
+        "age=3": { "model": "expandedmod:block/bluebush3" }
+    }
+}

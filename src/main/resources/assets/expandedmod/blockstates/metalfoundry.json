@@ -1,0 +1,8 @@
+{
+    "variants": {
+		"facing=north": { "model": "expandedmod:block/metalfoundry" },
+	    "facing=south": { "model": "expandedmod:block/metalfoundry", "y": 180 }  ,      
+		"facing=east": { "model": "expandedmod:block/metalfoundry", "y": 90 },
+		"facing=west": { "model": "expandedmod:block/metalfoundry", "y": 270 }
+    }
+}

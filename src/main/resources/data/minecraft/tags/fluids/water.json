@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:water",
+    "minecraft:flowing_water",
+	"expandedmod:mud",
+    "expandedmod:flowing_mud",
+	"expandedmod:oil",
+    "expandedmod:flowing_oil"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+		"facing=north": { "model": "expandedmod:block/eplamp" },
+	    "facing=south": { "model": "expandedmod:block/eplamp", "y": 180 }  ,      
+		"facing=east": { "model": "expandedmod:block/eplamp", "y": 90 },
+		"facing=west": { "model": "expandedmod:block/eplamp", "y": 270 }
+    }
+}

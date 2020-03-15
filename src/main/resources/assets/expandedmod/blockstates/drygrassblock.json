@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "expandedmod:block/drygrassblock" },
+            { "model": "expandedmod:block/drygrassblock", "y": 90 },
+            { "model": "expandedmod:block/drygrassblock", "y": 180 },
+            { "model": "expandedmod:block/drygrassblock", "y": 270 }
+        ]
+    }
+}

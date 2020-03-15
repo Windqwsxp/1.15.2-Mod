@@ -1,0 +1,13 @@
+{
+    "variants":
+    {
+        "age=0": { "model": "expandedmod:block/corncrop0" },
+        "age=1": { "model": "expandedmod:block/corncrop1" },
+        "age=2": { "model": "expandedmod:block/corncrop2" },
+        "age=3": { "model": "expandedmod:block/corncrop3" },
+        "age=4": { "model": "expandedmod:block/corncrop4" },
+        "age=5": { "model": "expandedmod:block/corncrop5" },
+        "age=6": { "model": "expandedmod:block/corncrop6" },
+        "age=7": { "model": "expandedmod:block/corncrop7" }
+    }
+}
